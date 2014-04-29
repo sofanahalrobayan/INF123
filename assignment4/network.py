@@ -68,14 +68,14 @@ class Handler(asynchat.async_chat):
     def found_terminator(self):
         msg = json.loads(''.join(self._buffer))
         self._buffer = []
-        self.on_msg(msg)
+        self.on_msg(msg) #write this
     
     def handle_close(self):
         self.close()
-        self.on_close()
+        self.on_close() #write this
 
     def handle_connect(self):  # called on the active side
-        self.on_open()
+        self.on_open() #write this
         
     # API you can use
     def do_send(self, msg):

@@ -9,7 +9,7 @@ myname = raw_input('What is your name? ')
 class Client(Handler):
     
     def on_close(self):
-        pass
+    	pass
     
     def on_msg(self, msg):
         print msg
