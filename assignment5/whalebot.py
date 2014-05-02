@@ -9,12 +9,11 @@ class Controller():
         self.m = m
     
     def poll(self):
+        #----------------- Question 2 ---------------------
         # cmd = random.choice(self.m.cmd_directions.keys())
         # if cmd:
         #     self.m.do_cmd(cmd)
         for i in self.m.pellets:
-            cmd = None
-
             pellet_x = i[0]
             pellet_y = i[1]
             my_box_x = self.m.mybox[0]
@@ -31,8 +30,6 @@ class Controller():
             elif my_box_x > pellet_x:
                 self.m.do_cmd('left')
 
-        if cmd:
-            self.m.do_cmd(cmd)
 
 ################### VIEW #############################
 
