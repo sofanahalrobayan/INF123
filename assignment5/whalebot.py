@@ -9,7 +9,28 @@ class Controller():
         self.m = m
     
     def poll(self):
-        cmd = random.choice(self.m.cmd_directions.keys())
+        # cmd = random.choice(self.m.cmd_directions.keys())
+        # if cmd:
+        #     self.m.do_cmd(cmd)
+        for i in self.m.pellets:
+            cmd = None
+
+            pellet_x = i[0]
+            pellet_y = i[1]
+            my_box_x = self.m.mybox[0]
+            my_box_y = self.m.mybox[1]
+
+            if my_box_x == pellet_x and my_box_y == pellet_y:
+                pass
+            elif my_box_x < pellet_x:
+                self.m.do_cmd('right')
+            elif my_box_y > pellet_y:
+                self.m.do_cmd('up')
+            elif my_box_y < pellet_y:
+                self.m.do_cmd('down')
+            elif my_box_x > pellet_x:
+                self.m.do_cmd('left')
+
         if cmd:
             self.m.do_cmd(cmd)
 
@@ -21,14 +42,14 @@ class View():
         self._frame = 0
         
     def display(self):
-        b = self.m.mybox
+        da_box = self.m.mybox
         self._frame += 1
+
         if self._frame == 50:
-            print("Position: " + str(b[0]) + ", " + str(b[1]))
+            print("Position: " + str(da_box[0]) + ", " + str(da_box[1]))
             self._frame = 0
     
 ################### LOOP #############################
-
 model = Model()
 c = Controller(model)
 v = View(model)
