@@ -45,10 +45,9 @@ class View():
             self._frame = 0
     
 ################### LOOP #############################
-import whaleuser
 model = Model()
 c = Controller(model)
-v = whaleuser.View(model)
+v = View(model)
 
 while not model.game_over:
     sleep(0.02)
