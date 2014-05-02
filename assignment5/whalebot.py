@@ -18,14 +18,14 @@ class Controller():
 class View():
     def __init__(self, m):
         self.m = m
-        self._counter = 0
+        self._frame = 0
         
     def display(self):
         b = self.m.mybox
-        self._counter += 1
-        if self._counter == 50:
+        self._frame += 1
+        if self._frame == 50:
             print("Position: " + str(b[0]) + ", " + str(b[1]))
-            self._counter = 0
+            self._frame = 0
     
 ################### LOOP #############################
 
