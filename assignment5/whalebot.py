@@ -19,9 +19,7 @@ class Controller():
             my_box_x = self.m.mybox[0]
             my_box_y = self.m.mybox[1]
 
-            if my_box_x == pellet_x and my_box_y == pellet_y:
-                pass
-            elif my_box_x < pellet_x:
+            if my_box_x < pellet_x:
                 self.m.do_cmd('right')
             elif my_box_y > pellet_y:
                 self.m.do_cmd('up')
@@ -47,9 +45,10 @@ class View():
             self._frame = 0
     
 ################### LOOP #############################
+import whaleuser
 model = Model()
 c = Controller(model)
-v = View(model)
+v = whaleuser.View(model)
 
 while not model.game_over:
     sleep(0.02)
